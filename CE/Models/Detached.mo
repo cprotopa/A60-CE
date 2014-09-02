@@ -264,8 +264,7 @@ equation
       smooth=Smooth.None));
 
   connect(Attic.gainCon, heatPortCon[3]) annotation (Line(
-      points={{100,57},{116,57},{116,28},{122,28},{122,26.6667},{150,
-          26.6667}},
+      points={{100,57},{116,57},{116,28},{122,28},{122,26.6667},{150,26.6667}},
       color={191,0,0},
       smooth=Smooth.None));
 
@@ -284,8 +283,8 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.gainCon, heatPortCon[1]) annotation (Line(
-      points={{100,-63},{108,-63},{116,-63},{116,-64},{116,14},{130,14},{
-          130,13.3333},{150,13.3333}},
+      points={{100,-63},{108,-63},{116,-63},{116,-64},{116,14},{130,14},{130,
+          13.3333},{150,13.3333}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.gainRad, heatPortRad[1]) annotation (Line(
@@ -393,8 +392,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(doors_D.propsBus_a, dayzone.propsBus[13:14]) annotation (Line(
-      points={{47,-89},{47,-82},{70,-82},{70,-70},{70,-70},{70,-56},{70,-56},
-          {70,-56},{80,-56},{80,-57.8571}},
+      points={{47,-89},{47,-82},{70,-82},{70,-70},{70,-70},{70,-56},{70,-56},{
+          70,-56},{80,-56},{80,-57.8571}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));

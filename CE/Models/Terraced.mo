@@ -297,8 +297,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(int_wall_N.propsBus_b, nightzone.propsBus[5]) annotation (Line(
-      points={{-72.6,-18},{-70,-18},{-70,-26},{-48,-26},{-48,2},{-50,2},{80,
-          2},{80,4.71429}},
+      points={{-72.6,-18},{-70,-18},{-70,-26},{-48,-26},{-48,2},{-50,2},{80,2},
+          {80,4.71429}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -308,8 +308,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(int_floor_N.propsBus_a, nightzone.propsBus[7]) annotation (Line(
-      points={{-72.6,20},{-72,20},{-72,24},{-48,24},{-48,2},{80,2},{80,
-          4.14286}},
+      points={{-72.6,20},{-72,20},{-72,24},{-48,24},{-48,2},{80,2},{80,4.14286}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -350,8 +349,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(int_wall_D.propsBus_b, dayzone.propsBus[5]) annotation (Line(
-      points={{-73.3,-78},{-72,-78},{-72,-86},{-50,-86},{-50,-58},{80,-58},
-          {80,-55.3846}},
+      points={{-73.3,-78},{-72,-78},{-72,-86},{-50,-86},{-50,-58},{80,-58},{80,
+          -55.3846}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -407,18 +406,15 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.TSensor, TSensor[1]) annotation (Line(
-      points={{100.6,-60},{132,-60},{132,-64},{144,-64},{144,-66.6667},{156,
-          -66.6667}},
+      points={{100.6,-60},{132,-60},{132,-64},{144,-64},{144,-66.6667},{156,-66.6667}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(dayzone.gainCon, heatPortCon[1]) annotation (Line(
-      points={{100,-63},{108,-63},{108,-64},{112,-64},{112,13.3333},{150,
-          13.3333}},
+      points={{100,-63},{108,-63},{108,-64},{112,-64},{112,13.3333},{150,13.3333}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.gainRad, heatPortRad[1]) annotation (Line(
-      points={{100,-66},{110,-66},{110,-64},{124,-64},{124,-26.6667},{150,
-          -26.6667}},
+      points={{100,-66},{110,-66},{110,-64},{124,-64},{124,-26.6667},{150,-26.6667}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(int_floor_N_A.port_emb, heatPortEmb[3]) annotation (Line(

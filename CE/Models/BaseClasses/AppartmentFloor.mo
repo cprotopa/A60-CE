@@ -37,27 +37,27 @@ model AppartmentFloor
   IDEAS.Buildings.Components.OuterWall[3] outerWall(redeclare each
       CE.Data.Constructions.State1.S1Wall                                                              constructionType,
     each insulationThickness=0,
-    AWall={10,10,10},
+    AWall={13.7,35.78 - 8.52,13.7},
     each inc=1.5707963267949,
-    each azi=0)                                                                                                     annotation (Placement(
+    azi={-1.5707963267949,-3.1415926535898,1.5707963267949})                                                   annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={-129,66})));
   IDEAS.Buildings.Components.Window window(redeclare CE.Data.Glazing.Ins2 glazing,
     redeclare each CE.Data.Frames.FrameU2_5 fraType,
-    A=10,
-    azi=0,
-    inc=1.5707963267949)                             annotation (Placement(transformation(
+    A=8.52,
+    inc=1.5707963267949,
+    azi=-3.1415926535898)                            annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={-89,66})));
   IDEAS.Buildings.Components.OuterWall[3] outerWall1(redeclare each
       CE.Data.Constructions.State1.S1Wall                                                               constructionType,
     each insulationThickness=0,
-    AWall={10,10,10},
+    AWall={16.24,45.9 - 15.3,10.78},
     each inc=1.5707963267949,
-    each azi=0)                                                                                                     annotation (Placement(
+    azi={-1.5707963267949,0,1.5707963267949})                                                                  annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,

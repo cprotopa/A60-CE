@@ -15,7 +15,7 @@ model Appartment
   BaseClasses.AppartmentFloor appartmentFloor4
     annotation (Placement(transformation(extent={{-40,80},{-10,100}})));
   IDEAS.Buildings.Components.InternalWall[3] internalWall(
-    AWall={1,1,1},
+    AWall={55.8,30.4,59.8},
     each azi=0,
     redeclare each CE.Data.Constructions.State1.S1Floor constructionType,
     each inc=0,
@@ -24,7 +24,7 @@ model Appartment
         rotation=90,
         origin={-69,30})));
   IDEAS.Buildings.Components.InternalWall[3] internalWall1(
-    AWall={1,1,1},
+    AWall={55.8,30.4,59.8},
     each azi=0,
     redeclare each CE.Data.Constructions.State1.S1Floor constructionType,
     each inc=0,
@@ -33,7 +33,7 @@ model Appartment
         rotation=90,
         origin={-69,70})));
   IDEAS.Buildings.Components.InternalWall[3] internalWall2(
-    AWall={1,1,1},
+    AWall={55.8,30.4,59.8},
     each azi=0,
     redeclare each CE.Data.Constructions.State1.S1Floor constructionType,
     each inc=0,
@@ -42,7 +42,7 @@ model Appartment
         rotation=90,
         origin={-69,-10})));
   IDEAS.Buildings.Components.InternalWall[3] internalWall3(
-    AWall={1,1,1},
+    AWall={55.8,30.4,59.8},
     each azi=0,
     redeclare each CE.Data.Constructions.State1.S1Floor      constructionType,
     each inc=0,
@@ -51,17 +51,17 @@ model Appartment
         rotation=90,
         origin={-69,-50})));
   IDEAS.Buildings.Components.SlabOnGround[3] internalWall4(
-    AWall={1,1,1},
+    AWall={55.8,30.4,59.8},
     each azi=0,
     redeclare each CE.Data.Constructions.State1.S1Floor constructionType,
     each inc=0,
     each insulationThickness=0,
-    each PWall=10)                                                        annotation (Placement(transformation(
+    PWall={12.8,0,12.8})                                                        annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={-69,-90})));
   IDEAS.Buildings.Components.OuterWall[3] internalWall5(
-    AWall={1,1,1},
+    AWall={55.8,30.4,59.8},
     each azi=0,
     redeclare each CE.Data.Constructions.State1.S1Floor constructionType,
     each inc=0,
