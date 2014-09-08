@@ -194,6 +194,38 @@ model D1 "A60 Detached V1"
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={73,-36})));
+  IDEAS.Fluid.Sources.FixedBoundary bou(nPorts=1, redeclare package Medium =
+        IDEAS.Media.Air)
+    annotation (Placement(transformation(extent={{-120,40},{-100,60}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary(nPorts=1, redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0)
+    annotation (Placement(transformation(extent={{-120,60},{-100,80}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=sim.Te)
+    annotation (Placement(transformation(extent={{-162,64},{-142,84}})));
+  IDEAS.Fluid.Sources.FixedBoundary bou1(         redeclare package Medium =
+        IDEAS.Media.Air, nPorts=1)
+    annotation (Placement(transformation(extent={{-120,-20},{-100,0}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary1(         redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0,
+    nPorts=1)
+    annotation (Placement(transformation(extent={{-120,0},{-100,20}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=sim.Te)
+    annotation (Placement(transformation(extent={{-162,4},{-142,24}})));
+  IDEAS.Fluid.Sources.FixedBoundary bou2(         redeclare package Medium =
+        IDEAS.Media.Air, nPorts=1)
+    annotation (Placement(transformation(extent={{-120,-80},{-100,-60}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary2(         redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0,
+    nPorts=1)
+    annotation (Placement(transformation(extent={{-120,-60},{-100,-40}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=sim.Te)
+    annotation (Placement(transformation(extent={{-162,-56},{-142,-36}})));
 equation
   connect(dayzone.TSensor, TSensor[1]) annotation (Line(
       points={{100.6,-60},{134,-60},{134,-66.6667},{156,-66.6667}},
@@ -341,6 +373,42 @@ equation
       points={{69,-41},{69,-48.5},{80,-48.5},{80,-57.8571}},
       color={255,204,51},
       thickness=0.5,
+      smooth=Smooth.None));
+  connect(boundary.ports[1], Attic.flowPort_Out) annotation (Line(
+      points={{-100,70},{4,70},{4,78},{88,78},{88,70}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou.ports[1], Attic.flowPort_In) annotation (Line(
+      points={{-100,50},{-12,50},{-12,72},{92,72},{92,70}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(realExpression.y, boundary.T_in) annotation (Line(
+      points={{-141,74},{-130,74},{-130,78},{-126,78},{-126,74},{-122,74}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(realExpression1.y, boundary1.T_in) annotation (Line(
+      points={{-141,14},{-122,14}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(realExpression2.y, boundary2.T_in) annotation (Line(
+      points={{-141,-46},{-122,-46}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(boundary1.ports[1], nightzone.flowPort_Out) annotation (Line(
+      points={{-100,10},{-36,10},{-36,14},{88,14},{88,10}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou1.ports[1], nightzone.flowPort_In) annotation (Line(
+      points={{-100,-10},{-6,-10},{-6,26},{92,26},{92,10}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(boundary2.ports[1], dayzone.flowPort_Out) annotation (Line(
+      points={{-100,-50},{-8,-50},{-8,-46},{88,-46},{88,-50}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou2.ports[1], dayzone.flowPort_In) annotation (Line(
+      points={{-100,-70},{-4,-70},{-4,-40},{92,-40},{92,-50}},
+      color={0,127,255},
       smooth=Smooth.None));
   annotation (
     Line(
