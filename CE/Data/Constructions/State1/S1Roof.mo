@@ -1,5 +1,5 @@
 within CE.Data.Constructions.State1;
-model S1Roof "S1 Pitched roof for the period after 2007"
+record S1Roof "S1 Pitched roof for the period after 2007"
 
   extends IDEAS.Buildings.Data.Interfaces.Construction(nLay=5, mats={
         CE.Data.Materials.S1TiledRoof(),

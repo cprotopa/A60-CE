@@ -1,5 +1,5 @@
 within CE.Data.Constructions.State1;
-model S1Floor "S1 Floor for the period after 2007"
+record S1Floor "S1 Floor for the period after 2007"
 
   extends IDEAS.Buildings.Data.Interfaces.Construction(nLay=4, mats={
         CE.Data.Materials.Tile(),
