@@ -8,7 +8,6 @@ model HeatPump "A60 Consoclim heatpump model"
     final nConvPorts = nZones,
     final nRadPorts = nZones,
     final nTemSen = nZones,
-    final nEmbPorts=nZones,
     final nLoads=1,
     nZones = nZones);
 
@@ -28,9 +27,6 @@ model HeatPump "A60 Consoclim heatpump model"
   Modelica.SIunits.Temperature TAir = sim.Te "Outdoor air temperature";
   Modelica.SIunits.Temperature TWex = 273.15 + 40 "Supply water temperature";
   Modelica.SIunits.Temperature dT;
-
-  outer IDEAS.SimInfoManager sim
-    annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
 
 equation
    for i in 1:nZones loop
