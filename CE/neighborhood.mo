@@ -3,118 +3,240 @@ model neighborhood
 
   inner IDEAS.SimInfoManager sim
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
-  IDEAS.Interfaces.Building building1 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building1(
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.SL1 building(orientation=0))
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-90,-30})));
   IDEAS.Interfaces.Building building2(
-    redeclare CE.Models.D1 building,
     redeclare CE.HeatingSystems.HeatPump heatingSystem,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare CE.Occupants.ISO13790 occupant)
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.D1 building(orientation=3.1415926535898))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-80,-70})));
-  IDEAS.Interfaces.Building building3 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building3(
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.T1 building(orientation=0))
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-70,-30})));
-  IDEAS.Interfaces.Building building4 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building4(
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.T2 building(orientation=0))
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-50,-30})));
-  IDEAS.Interfaces.Building building5 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building5(
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.T1 building(orientation=0))
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-30,-30})));
   IDEAS.Interfaces.Building building6(
-    redeclare CE.Models.D2 building,
     redeclare CE.HeatingSystems.Boiler heatingSystem,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare CE.Occupants.ISO13790 occupant)
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.D2 building(orientation=3.1415926535898))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-20,-70})));
-  IDEAS.Interfaces.Building building7 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building7(
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.VentilationSystems.ConstantAirFlowRecup ventilationSystem,
+    redeclare CE.Models.SR2 building(orientation=0))
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-10,-30})));
   IDEAS.Interfaces.Building building8(
-    redeclare CE.Models.D1 building,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.HeatingSystems.HeatPump heatingSystem,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.Occupants.ISO13790 occupant)
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare CE.Models.D1 building(orientation=3.1415926535898))
                          annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={10,-70})));
-  IDEAS.Interfaces.Building building9 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building9(redeclare CE.HeatingSystems.HeatPump
+      heatingSystem, redeclare CE.Models.SL2 building(orientation=0))
+                                      annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={30,-30})));
   IDEAS.Interfaces.Building building10(
-    redeclare CE.Models.D1 building,
     redeclare CE.HeatingSystems.HeatPump heatingSystem,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare CE.Occupants.ISO13790 occupant)
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.D1 building(orientation=3.1415926535898))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={40,-70})));
-  IDEAS.Interfaces.Building building11 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building11(
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.T1 building(orientation=0))
+                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={50,-30})));
-  IDEAS.Interfaces.Building building12 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building12(
+    redeclare CE.Models.Appartment building,
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={70,-30})));
   IDEAS.Interfaces.Building building13(
-    redeclare CE.Models.D1 building,
     redeclare CE.HeatingSystems.HeatPump heatingSystem,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare CE.Occupants.ISO13790 occupant)
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.D1 building(orientation=3.1415926535898))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={80,-70})));
-  IDEAS.Interfaces.Building building14 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building14(
+    redeclare CE.Models.Appartment building,
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={90,-30})));
   IDEAS.Interfaces.Building building15(
-    redeclare CE.Models.D2 building,
     redeclare CE.HeatingSystems.Boiler heatingSystem,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare CE.Occupants.ISO13790 occupant)
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.D2 building(orientation=3.1415926535898))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={100,-70})));
-  IDEAS.Interfaces.Building building16 annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building16(
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.SR1 building(orientation=0))
+                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={110,-30})));
-  IDEAS.Interfaces.Building building17
+  IDEAS.Interfaces.Building building17(
+    redeclare CE.Models.SL1 building(orientation=-1.5707963267949),
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-  IDEAS.Interfaces.Building building18
+  IDEAS.Interfaces.Building building18(
+    redeclare CE.Models.SR1 building(orientation=1.5707963267949),
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{20,4},{40,24}})));
-  IDEAS.Interfaces.Building building19
+  IDEAS.Interfaces.Building building19(
+    redeclare CE.Models.T1 building(orientation=-1.5707963267949),
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-  IDEAS.Interfaces.Building building20
+  IDEAS.Interfaces.Building building20(
+    redeclare CE.Models.T2 building(orientation=1.5707963267949),
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{20,24},{40,44}})));
-  IDEAS.Interfaces.Building building21
+  IDEAS.Interfaces.Building building21(
+    redeclare CE.Models.T2 building(orientation=-1.5707963267949),
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-  IDEAS.Interfaces.Building building22
+  IDEAS.Interfaces.Building building22(
+    redeclare CE.Models.T1 building(orientation=1.5707963267949),
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{20,44},{40,64}})));
-  IDEAS.Interfaces.Building building23
+  IDEAS.Interfaces.Building building23(
+    redeclare CE.Models.T2 building(orientation=-1.5707963267949),
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
-  IDEAS.Interfaces.Building building24
+  IDEAS.Interfaces.Building building24(
+    redeclare CE.Models.SL2 building(orientation=1.5707963267949),
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.Occupant.None occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)
     annotation (Placement(transformation(extent={{20,64},{40,84}})));
+  inner Modelica.Fluid.System system
+    annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
   annotation (Diagram(coordinateSystem(extent={{-100,-100},{120,100}},
           preserveAspectRatio=false), graphics={
         Line(
