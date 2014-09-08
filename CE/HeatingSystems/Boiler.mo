@@ -11,17 +11,12 @@ model Boiler "A60 Boiler model"
     final nLoads=1,
     nZones = nZones);
 
-  Real FRF = 1 "Flowrate fraction";
   Real PLR = QHeaSys/sum(QNom) "Part load ratio";
   Real PBoi;
 
-  Modelica.SIunits.Temperature TAir = sim.Te "Outdoor air temperature";
-  Modelica.SIunits.Temperature TWex = 273.15 + 40 "Supply water temperature";
-  Modelica.SIunits.Temperature dT;
-
 equation
    for i in 1:nZones loop
-     if noEvent((TSet[i] - TSensor[i]) > 0) then
+     if noEvent((274.15 - TSensor[i]) > 0) then
        QHeatZone[i] = IDEAS.Utilities.Math.Functions.smoothMin(x1=C[i]*(294.15- TSensor[i])/t, x2=QNom[i],deltaX=1);
      else
        QHeatZone[i] = 0;
@@ -35,8 +30,8 @@ equation
   end for;
 
   QHeaSys = sum(QHeatZone);
-//  P[1] = QHeaSys/COP;
-//  Q[1] = 0;
+  P[1] = QHeaSys/COP;
+  Q[1] = 0;
 
   PBoi = -0.0591*PLR+0.9303;
 
