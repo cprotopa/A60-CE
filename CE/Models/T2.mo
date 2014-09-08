@@ -57,7 +57,7 @@ public
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
     redeclare CE.Data.Constructions.State2.S2Roof  constructionType,
-    AWall={A_Aroof,A_Aroof}) "Roof of attic"
+    each insulationThickness=0, AWall={A_Aroof,A_Aroof}) "Roof of attic"
                                       annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
@@ -67,6 +67,7 @@ public
     azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East + orientation},
     AWall={A_Awall_west,A_Awall_east},
     redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
+    each insulationThickness=0,
     inc={1.5707963267949,1.5707963267949})
     "Common walls with neighbors of the attic" annotation (Placement(
         transformation(
@@ -87,7 +88,7 @@ public
     AWall={N_Aroof,N_Aroof},
     inc={Roof_incl,Roof_incl},
     redeclare CE.Data.Constructions.State2.S2Roof  constructionType,
-    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
+    each insulationThickness=0,azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation}) "Roof of nightzone"
                                       annotation (Placement(
         transformation(
@@ -101,7 +102,7 @@ public
     azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East +
         orientation},
     redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
-    inc={1.5707963267949,1.5707963267949})
+    each insulationThickness=0,inc={1.5707963267949,1.5707963267949})
     "Common walls with neighbors of the night zone"
                                                annotation (Placement(
         transformation(
@@ -128,7 +129,7 @@ public
     azi=0,
     AWall=N_Aintfloor,
     redeclare CE.Data.Constructions.State2.S2Floor_Int constructionType,
-    inc=0) "Floor in the night zone" annotation (Placement(transformation(
+    each insulationThickness=0,inc=0) "Floor in the night zone" annotation (Placement(transformation(
         extent={{-5,-9},{5,9}},
         rotation=90,
         origin={-69,15})));
@@ -136,7 +137,7 @@ public
     azi=0,
     AWall=N_Aintwalls,
      redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
-    inc=1.5707963267949) "Walls in the nightzone"  annotation (Placement(
+    each insulationThickness=0,inc=1.5707963267949) "Walls in the nightzone"  annotation (Placement(
         transformation(
         extent={{-5,-9},{5,9}},
         rotation=90,
@@ -144,7 +145,7 @@ public
   IDEAS.Buildings.Components.OuterWall walls_N[2](
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
-    AWall={D_Awall_south,D_Awall_north},
+    each insulationThickness=0,AWall={D_Awall_south,D_Awall_north},
     redeclare CE.Data.Constructions.State2.S2Wall constructionType,
     inc={1.5707963267949,1.5707963267949}) "Outer walls of nightzone"
     annotation (Placement(transformation(
@@ -165,7 +166,7 @@ public
     azi=0,
     PWall=D_Pfloor,
     redeclare CE.Data.Constructions.State2.S2Floor constructionType,
-    AWall=D_Afloor) "Slab on ground of dayzone" annotation (Placement(
+    each insulationThickness=0,AWall=D_Afloor) "Slab on ground of dayzone" annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -175,7 +176,8 @@ public
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
     redeclare CE.Data.Constructions.State2.S2Wall constructionType,
-    inc={1.5707963267949,1.5707963267949}) "Outer walls of dayzone"
+    each insulationThickness=0,inc={1.5707963267949,1.5707963267949})
+    "Outer walls of dayzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -186,7 +188,7 @@ public
     azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East +
         orientation},
     redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
-    inc={1.5707963267949,1.5707963267949})
+    each insulationThickness=0,inc={1.5707963267949,1.5707963267949})
     "Common walls with neighbors of the dayzone" annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
@@ -210,7 +212,7 @@ public
     redeclare CE.Data.Constructions.State2.S2Door constructionType,
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
-    AWall={D_Adoor_south,D_Adoor_north},
+    each insulationThickness=0,AWall={D_Adoor_south,D_Adoor_north},
     redeclare IDEAS.Buildings.Data.Insulation.none insulationType,
     inc={1.5707963267949,1.5707963267949}) "Exterior doors of dayzone"
                                                      annotation (
@@ -220,7 +222,7 @@ public
         origin={51,-94})));
   IDEAS.Buildings.Components.InternalWall int_wall_D(
     azi=0,
-    AWall=D_Aintwalls,
+    each insulationThickness=0,AWall=D_Aintwalls,
     redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
     inc=1.5707963267949) "Walls in the dayzone" annotation (Placement(
         transformation(
@@ -230,7 +232,7 @@ public
 
   IDEAS.Buildings.Components.OuterWall roof_D(
     inc=0,
-    azi=IDEAS.Constants.South + orientation,
+    each insulationThickness=0,azi=IDEAS.Constants.South + orientation,
     redeclare CE.Data.Constructions.State2.S2FlatRoof constructionType,
     AWall=D_Aroof) "Roof of dayzone"
                       annotation (Placement(transformation(
@@ -241,7 +243,7 @@ public
   //Floors between zones
   IDEAS.Buildings.Components.InternalWall int_floor_D_N(
     inc=0,
-    azi=0,
+    each insulationThickness=0,azi=0,
     redeclare CE.Data.Constructions.State2.S2Floor_Int constructionType,
      AWall=D_N_Acommonfloor) "Internal floors between day and night zones"
     annotation (Placement(transformation(
@@ -251,7 +253,7 @@ public
 
   IDEAS.Buildings.Components.InternalWall int_floor_N_A(
     inc=0,
-    azi=0,
+    each insulationThickness=0,azi=0,
     redeclare CE.Data.Constructions.State2.S2Floor_Int constructionType,
      AWall=N_A_Acommonfloor) "Internal floors between day and night zones"
     annotation (Placement(transformation(
