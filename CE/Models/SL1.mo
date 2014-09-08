@@ -1,5 +1,5 @@
 within CE.Models;
-model Semi_Detached "Semi-Detached"
+model SL1 ":irrored Semi-Detached house on the LEFT side of the block, state 1"
 
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=3,
@@ -10,76 +10,53 @@ model Semi_Detached "Semi-Detached"
 
   parameter Modelica.SIunits.Angle orientation
     "Tilt compared to original orientation (=0)";
-  parameter Modelica.SIunits.Angle Roof_incl "Inclination of the roof";
   parameter Real f=0.15 " Frame/window fraction: 0.15 ";
 
+protected
+parameter Modelica.SIunits.Angle  Roof_incl = 32.47*Modelica.Constants.pi/180;
+parameter Modelica.SIunits.Volume  A_Volume = 43.26;
+parameter Modelica.SIunits.Area  A_Aroof_south = 28.49;
+parameter Modelica.SIunits.Area  A_Aroof_north = 28.49;
+parameter Modelica.SIunits.Area  A_Awall_west =  5.67;
+parameter Modelica.SIunits.Area  A_Awall_comm = 5.67;
+parameter Modelica.SIunits.Volume  N_Volume = 126.52;
+parameter Modelica.SIunits.Area  N_Aroof_south = 23.19;
+parameter Modelica.SIunits.Area  N_Aroof_north = 22.39;
+parameter Modelica.SIunits.Area  N_Awall_south =  9.66;
+parameter Modelica.SIunits.Area  N_Awall_west =  21.02;
+parameter Modelica.SIunits.Area  N_Awall_north =  9.66;
+parameter Modelica.SIunits.Area  N_Awall_comm =  26.78;
+parameter Modelica.SIunits.Area  N_Awind_south =  0.80;
+parameter Modelica.SIunits.Area  N_Awind_west = 5.76;
+parameter Modelica.SIunits.Area  N_Awind_north =  1.60;
+parameter Modelica.SIunits.Area  N_Aintwalls =  58.78;
+parameter Modelica.SIunits.Area  N_A_Acommonfloor =  48.07;
+parameter Modelica.SIunits.Volume  D_Volume = 209.11;
+parameter Modelica.SIunits.Area  D_Awall_south =  17.70;
+parameter Modelica.SIunits.Area  D_Awall_west =  24.20;
+parameter Modelica.SIunits.Area  D_Awall_north =  13.83;
+parameter Modelica.SIunits.Area  D_Awall_comm = 22.54;
+parameter Modelica.SIunits.Area  D_Awind_south =  2.86;
+parameter Modelica.SIunits.Area  D_Awind_west = 6.60;
+parameter Modelica.SIunits.Area  D_Awind_north =  8.71;
+parameter Modelica.SIunits.Area   D_Adoor = 1.98;
+parameter Modelica.SIunits.Area  D_Afloor = 88.55;
+parameter Modelica.SIunits.Length  D_Pfloor =  27.10;
+parameter Modelica.SIunits.Area   D_Aintwalls =  45.70;
+parameter Modelica.SIunits.Area   D_N_Acommonfloor =  88.55;
   //Attic
-  parameter Modelica.SIunits.Volume A_Volume "Volume of the ATTIC";
-  parameter Modelica.SIunits.Area A_Aroof_south "Area of south roof, ATTIC";
-  parameter Modelica.SIunits.Area A_Aroof_north "Area of north roof, ATTIC";
-  parameter Modelica.SIunits.Area A_Awall_west
-    "Area of west facing walls, ATTIC";
-  parameter Modelica.SIunits.Area A_Awall_comm "Area of common walls, ATTIC";
-
-  //Nightzone
-  parameter Modelica.SIunits.Volume N_Volume "Volume of the NIGHT zone";
-  parameter Modelica.SIunits.Area N_Aroof_south
-    "Area of south roof, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Aroof_north
-    "Area of north roof, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_south
-    "Area of south facing walls (south on the original model), NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_west
-    "Area of west facing walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_north
-    "Area of north facing walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_comm
-    "Area of common walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awind_south
-    "Area of south facing windows, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awind_north
-    "Area of north facing windows, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awind_west
-    "Area of west facing windows, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Aintwalls
-    "Total area of internal walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_A_Acommonfloor
-    "Area of the common floor between NIGHT zone and ATTIC";
-
-  // Dayzone
-  parameter Modelica.SIunits.Volume D_Volume "Volume of the DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_south
-    "Area of south facing walls (south on the original model), DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_west
-    "Area of west facing walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_north
-    "Area of north facing walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_comm "Area of common walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Awind_south
-    "Area of south facing windows, DAY zone";
-  parameter Modelica.SIunits.Area D_Awind_west
-    "Area of west facing windows, DAY zone";
-  parameter Modelica.SIunits.Area D_Awind_north
-    "Area of north facing windows, DAY zone";
-  parameter Modelica.SIunits.Area D_Adoor "Area of the door";
-  parameter Modelica.SIunits.Area D_Afloor "Area of floor on ground, DAY zone";
-  parameter Modelica.SIunits.Length D_Pfloor
-    "Perimeter of floor on ground, DAY zone";
-  parameter Modelica.SIunits.Area D_Aintwalls
-    "Total area of internal walls, DAY zone";
-  parameter Modelica.SIunits.Area D_N_Acommonfloor
-    "Area of the common floor between DAY and NIGHT zones";
-
-  //Attic
+public
     IDEAS.Buildings.Components.Zone Attic(
     V=N_Volume,
     corrCV=5,
-    nSurf=5) "Attic"
+    nSurf=5,
+    n50=2) "Attic"
     annotation (Placement(transformation(extent={{80,50},{100,70}})));
   IDEAS.Buildings.Components.OuterWall roof_A[2](
     inc={Roof_incl,Roof_incl},
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
+   redeclare CE.Data.Constructions.State1.S1Roof  constructionType,
     AWall={A_Aroof_south,A_Aroof_north}) "Roof of attic"
                                       annotation (Placement(
         transformation(
@@ -88,8 +65,9 @@ model Semi_Detached "Semi-Detached"
         origin={-29,46})));
   IDEAS.Buildings.Components.AdiabaticWall comm_wall_A(
     AWall=A_Awall_comm,
+    redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
     inc=1.5707963267949,
-    azi=IDEAS.Constants.East + orientation)
+    azi=IDEAS.Constants.West + orientation)
     "Common wall with neighbors of the attic"     annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
@@ -97,8 +75,9 @@ model Semi_Detached "Semi-Detached"
         origin={-109,46})));
   IDEAS.Buildings.Components.OuterWall walls_A(
     AWall=A_Awall_west,
+   redeclare CE.Data.Constructions.State1.S1Wall constructionType,
     inc=1.5707963267949,
-    azi=IDEAS.Constants.West + orientation) "Outer wall of attic"
+    azi=IDEAS.Constants.East + orientation) "Outer wall of attic"
                                annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -108,13 +87,15 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.Zone nightzone(
     V=N_Volume,
     corrCV=5,
-    nSurf=13) "Nightzone (bedrooms, corridors & bathroom)"
+    nSurf=13,
+    n50=2) "Nightzone (bedrooms, corridors & bathroom)"
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
   IDEAS.Buildings.Components.OuterWall roof_N[2](
     inc={Roof_incl,Roof_incl},
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
+    redeclare CE.Data.Constructions.State1.S1Roof  constructionType,
     AWall={N_Aroof_south,N_Aroof_north}) "Roof of nightzone"
                                                  annotation (Placement(
         transformation(
@@ -124,8 +105,9 @@ model Semi_Detached "Semi-Detached"
 
   IDEAS.Buildings.Components.OuterWall walls_N[3](
     AWall={N_Awall_south,N_Awall_west,N_Awall_north},
+    redeclare CE.Data.Constructions.State1.S1Wall constructionType,
     inc={1.5707963267949,1.5707963267949,1.5707963267949},
-    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.West + orientation,
+    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.East + orientation,
         IDEAS.Constants.North + orientation}) "Outer walls of nightzone"
                                annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
@@ -134,8 +116,9 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.AdiabaticWall
                                         comm_wall_N(
     AWall=N_Awall_comm,
+     redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
     inc=1.5707963267949,
-    azi=IDEAS.Constants.East + orientation)
+    azi=IDEAS.Constants.West + orientation)
     "Common wall with neighbors of the nightzone" annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
@@ -146,12 +129,11 @@ model Semi_Detached "Semi-Detached"
     redeclare IDEAS.Buildings.Components.Shading.None shaType,
     redeclare CE.Data.Glazing.Ins2 glazing,
     A={N_Awind_south,N_Awind_west,N_Awind_north},
-    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.West + orientation,
-        IDEAS.Constants.North + orientation},
     frac={f,f,f},
     redeclare CE.Data.Frames.FrameU2_5 fraType,
-    inc={1.5707963267949,1.5707963267949,1.5707963267949})
-    "Windows of nightzone"
+    inc={1.5707963267949,1.5707963267949,1.5707963267949},
+    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.East + orientation,
+        IDEAS.Constants.North + orientation}) "Windows of nightzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -160,7 +142,8 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.InternalWall int_wall_N(
     azi=0,
     AWall=N_Aintwalls,
-    inc=1.5707963267949) "Walls in the nightzone" annotation (Placement(
+     redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
+    inc=1.5707963267949) "Walls in the nightzone"  annotation (Placement(
         transformation(
         extent={{-5,-9},{5,9}},
         rotation=90,
@@ -171,12 +154,14 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.Zone dayzone(
     V=D_Volume,
     corrCV=5,
-    nSurf=12) "Dayzone (living room & kitchen)"
+    nSurf=12,
+    n50=2) "Dayzone (living room & kitchen)"
     annotation (Placement(transformation(extent={{80,-70},{100,-50}})));
 
   IDEAS.Buildings.Components.SlabOnGround floor_D(
     inc=0,
     azi=0,
+    redeclare CE.Data.Constructions.State1.S1Floor constructionType,
     AWall=D_Afloor,
     PWall=D_Pfloor) "Slab on ground of dayzone" annotation (Placement(
         transformation(
@@ -185,18 +170,21 @@ model Semi_Detached "Semi-Detached"
         origin={-29,-74})));
   IDEAS.Buildings.Components.OuterWall walls_D[3](
     AWall={D_Awall_south,D_Awall_west,D_Awall_north},
-    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.West + orientation,
-        IDEAS.Constants.North + orientation},
-    inc={1.5707963267949,1.5707963267949,1.5707963267949})
-    "Outer walls of dayzone" annotation (Placement(transformation(
+    redeclare CE.Data.Constructions.State1.S1Wall constructionType,
+    inc={1.5707963267949,1.5707963267949,1.5707963267949},
+    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.East + orientation,
+        IDEAS.Constants.North + orientation}) "Outer walls of dayzone"
+                             annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={11,-74})));
   IDEAS.Buildings.Components.AdiabaticWall
                                         comm_wall_D(
     AWall=D_Awall_comm,
-    azi=IDEAS.Constants.East + orientation,
-    inc=1.5707963267949) "Common walls with neighbors of the dayzone"
+    redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
+    inc=1.5707963267949,
+    azi=IDEAS.Constants.West + orientation)
+    "Common walls with neighbors of the dayzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -204,13 +192,13 @@ model Semi_Detached "Semi-Detached"
 
   IDEAS.Buildings.Components.Window windows_D[3](
     redeclare IDEAS.Buildings.Components.Shading.None shaType,
-    redeclare IDEAS.Buildings.Data.Frames.None fraType,
     redeclare CE.Data.Glazing.Ins2 glazing,
     A={D_Awind_south,D_Awind_west,D_Awind_north},
-    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.West + orientation,
-        IDEAS.Constants.North + orientation},
     frac={f,f,f},
-    inc={1.5707963267949,1.5707963267949,1.5707963267949}) "Windows of dayzone"
+    redeclare CE.Data.Frames.FrameU2_5 fraType,
+    inc={1.5707963267949,1.5707963267949,1.5707963267949},
+    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.East + orientation,
+        IDEAS.Constants.North + orientation}) "Windows of dayzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -230,7 +218,8 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.InternalWall int_wall_D(
     azi=0,
     AWall=D_Aintwalls,
-    inc=1.5707963267949) "Walls in the dayzone" annotation (Placement(
+     redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
+    inc=1.5707963267949) "Walls in the dayzone"  annotation (Placement(
         transformation(
         extent={{-5.5,-9.5},{5.5,9.5}},
         rotation=90,
@@ -240,7 +229,8 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.InternalWall int_floor_D_N(
     inc=0,
     azi=0,
-    AWall=D_N_Acommonfloor) "Internal floors between day and night zones"
+    redeclare CE.Data.Constructions.State1.S1Floor_Int  constructionType,
+     AWall=D_N_Acommonfloor) "Internal floors between day and night zones"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -249,7 +239,8 @@ model Semi_Detached "Semi-Detached"
   IDEAS.Buildings.Components.InternalWall int_floor_N_A(
     inc=0,
     azi=0,
-    AWall=N_A_Acommonfloor) "Internal floors between day and night zones"
+    redeclare CE.Data.Constructions.State1.S1Floor_Int  constructionType,
+     AWall=N_A_Acommonfloor) "Internal floors between day and night zones"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -423,4 +414,4 @@ equation
     Diagram(coordinateSystem(extent={{-120,-100},{160,80}},
           preserveAspectRatio=false), graphics),
     Icon(coordinateSystem(extent={{-120,-100},{160,80}})));
-end Semi_Detached;
+end SL1;
