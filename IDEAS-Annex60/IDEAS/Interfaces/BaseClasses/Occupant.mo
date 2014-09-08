@@ -4,8 +4,6 @@ partial model Occupant
   parameter Integer nZones(min=1) "number of conditioned thermal zones";
   parameter Integer nLoads(min=1) = 1 "number of electric loads";
 
-  parameter Integer id=1 "id-number on extern data references";
-
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a[nZones] heatPortCon
     "Nodes for convective heat gains" annotation (Placement(transformation(
           extent={{-110,10},{-90,30}}), iconTransformation(extent={{-110,10},{-90,
@@ -28,7 +26,6 @@ partial model Occupant
   Electric.BaseClasses.WattsLawPlug wattsLawPlug(each numPha=1,final nLoads=
         nLoads)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-
   Modelica.Blocks.Interfaces.RealOutput mDHW60C
     "mFlow for domestic hot water, at 60 degC" annotation (Placement(
         transformation(
