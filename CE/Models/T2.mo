@@ -1,5 +1,5 @@
 within CE.Models;
-model Terraced "Terraced"
+model T2 "Terraced house, state 2"
 
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=3,
@@ -10,77 +10,83 @@ model Terraced "Terraced"
 
   parameter Modelica.SIunits.Angle orientation
     "Tilt compared to original orientation (=0)";
-  parameter Modelica.SIunits.Angle Roof_incl "Inclination of the roof";
-  parameter Real f=0.15 " Frame/window fraction: 0.15 ";
+   parameter Real f=0.15 " Frame/window fraction: 0.15 ";
 
-    //Attic
-  parameter Modelica.SIunits.Volume A_Volume "Volume of the ATTIC";
-  parameter Modelica.SIunits.Area A_Aroof "Area of roof (one side), ATTIC";
-   parameter Modelica.SIunits.Area A_Awall_west
-    "Area of west common walls, ATTIC";
-  parameter Modelica.SIunits.Area A_Awall_east
-    "Area of east common walls, ATTIC";
+protected
+parameter Modelica.SIunits.Angle  Roof_incl = 32.92*Modelica.Constants.pi/180;
+parameter Modelica.SIunits.Volume  A_Volume = 22.6;
+parameter Modelica.SIunits.Area  A_Aroof = 17.96;
+parameter Modelica.SIunits.Area  A_Awall_west =  4.0;
+parameter Modelica.SIunits.Area  A_Awall_east =  4.0;
+parameter Modelica.SIunits.Volume  N_Volume = 240.4;
+parameter Modelica.SIunits.Area  N_Awall_south =  22.9;
+parameter Modelica.SIunits.Area  N_Awall_west =  46.2;
+parameter Modelica.SIunits.Area  N_Awall_north =  22.9;
+parameter Modelica.SIunits.Area  N_Awall_east =  46.2;
+parameter Modelica.SIunits.Area  N_Awind_south =  6.96;
+parameter Modelica.SIunits.Area  N_Awind_north =  6.96;
+parameter Modelica.SIunits.Area  N_Aroof =  10.47;
+parameter Modelica.SIunits.Area  N_Aintwalls =  63.35;
+parameter Modelica.SIunits.Area  N_Aintfloor =  52.77;
+parameter Modelica.SIunits.Area  N_A_Acommonfloor =  30.15;
+parameter Modelica.SIunits.Volume  D_Volume = 138.5;
+parameter Modelica.SIunits.Area  D_Awall_south =  12.22;
+parameter Modelica.SIunits.Area  D_Awall_west =  31.50;
+parameter Modelica.SIunits.Area  D_Awall_north =  15.82;
+parameter Modelica.SIunits.Area  D_Awall_east =  24.22;
+parameter Modelica.SIunits.Area  D_Awind_south =  2.88;
+parameter Modelica.SIunits.Area  D_Awind_north =  6.00;
+parameter Modelica.SIunits.Area   D_Adoor_south = 1.98;
+parameter Modelica.SIunits.Area  D_Adoor_north = 1.26;
+parameter Modelica.SIunits.Area  D_Afloor = 58.36;
+parameter Modelica.SIunits.Length  D_Pfloor =  14.80;
+parameter Modelica.SIunits.Area   D_Aintwalls =  23.07;
+parameter Modelica.SIunits.Area  D_Aroof =  5.59;
+parameter Modelica.SIunits.Area   D_N_Acommonfloor =  52.77;
 
-  //Nightzone
-
-  parameter Modelica.SIunits.Volume N_Volume "Volume of the NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_south
-    "Area of south facing walls (south on the original model), NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_west
-    "Area of west common walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_north
-    "Area of north facing walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awall_east
-    "Area of east common walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awind_south
-    "Area of south facing windows, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Awind_north
-    "Area of north facing windows, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Aroof
-    "Area of piched roof of the NIGHT zone (only one side)";
-  parameter Modelica.SIunits.Area N_Aintwalls
-    "Total area of internal walls, NIGHT zone";
-  parameter Modelica.SIunits.Area N_Aintfloor
-    "Total area of internal floors, NIGHT zone";
-  parameter Modelica.SIunits.Area N_A_Acommonfloor
-    "Area of the common floor between NIGHT zone and ATTIC";
-
-  // Dayzone
-  parameter Modelica.SIunits.Volume D_Volume "Volume of the DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_south
-    "Area of south facing walls (south on the original model), DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_west
-    "Area of west common walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_north
-    "Area of north facing walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Awall_east
-    "Area of east common walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Awind_south
-    "Area of south facing windows, DAY zone";
-  parameter Modelica.SIunits.Area D_Awind_north
-    "Area of north facing windows, DAY zone";
-  parameter Modelica.SIunits.Area D_Adoor_south "Area of door to the south";
-  parameter Modelica.SIunits.Area D_Adoor_north "Area of door to the north";
-  parameter Modelica.SIunits.Area D_Afloor "Area of floor on ground, DAY zone";
-  parameter Modelica.SIunits.Length D_Pfloor
-    "Perimeter of floor on ground, DAY zone";
-  parameter Modelica.SIunits.Area D_Aintwalls
-    "Total area of internal walls, DAY zone";
-  parameter Modelica.SIunits.Area D_Aroof "Area of flat roof of the DAY zone";
-  parameter Modelica.SIunits.Area D_N_Acommonfloor
-    "Area of the common floor between DAY and NIGHT zones";
+  //Attic
+public
+  IDEAS.Buildings.Components.Zone Attic(
+    V=N_Volume,
+    corrCV=5,
+    nSurf=5,
+    n50=10) "Attic"
+    annotation (Placement(transformation(extent={{80,50},{100,70}})));
+  IDEAS.Buildings.Components.OuterWall roof_A[2](
+    inc={Roof_incl,Roof_incl},
+    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
+        orientation},
+    redeclare CE.Data.Constructions.State2.S2Roof  constructionType,
+    AWall={A_Aroof,A_Aroof}) "Roof of attic"
+                                      annotation (Placement(
+        transformation(
+        extent={{-5,-10},{5,10}},
+        rotation=90,
+        origin={-29,46})));
+  IDEAS.Buildings.Components.AdiabaticWall comm_wall_A[2](
+    azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East + orientation},
+    AWall={A_Awall_west,A_Awall_east},
+    redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
+    inc={1.5707963267949,1.5707963267949})
+    "Common walls with neighbors of the attic" annotation (Placement(
+        transformation(
+        extent={{-5,-10},{5,10}},
+        rotation=90,
+        origin={-109,46})));
 
   //Nightzone
 
   IDEAS.Buildings.Components.Zone nightzone(
     V=N_Volume,
      corrCV=5,
-    nSurf=14) "Night zone"
+    nSurf=14,
+    n50=10) "Night zone"
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
   IDEAS.Buildings.Components.OuterWall roof_N[2](
     AWall={N_Aroof,N_Aroof},
     inc={Roof_incl,Roof_incl},
+    redeclare CE.Data.Constructions.State2.S2Roof  constructionType,
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation}) "Roof of nightzone"
                                       annotation (Placement(
@@ -94,6 +100,7 @@ model Terraced "Terraced"
     AWall={N_Awall_west,N_Awall_east},
     azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East +
         orientation},
+    redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
     inc={1.5707963267949,1.5707963267949})
     "Common walls with neighbors of the night zone"
                                                annotation (Placement(
@@ -109,8 +116,8 @@ model Terraced "Terraced"
         orientation},
     redeclare CE.Data.Glazing.Ins2 glazing,
     frac={f,f},
-    inc={1.5707963267949,1.5707963267949},
-    redeclare CE.Data.Frames.FrameU2_5 fraType) "Window of attic"
+    redeclare CE.Data.Frames.FrameU2_5 fraType,
+    inc={1.5707963267949,1.5707963267949}) "Window of attic"
                                            annotation (
       Placement(transformation(
         extent={{-5,-10},{5,10}},
@@ -120,6 +127,7 @@ model Terraced "Terraced"
   IDEAS.Buildings.Components.InternalWall int_floor_N(
     azi=0,
     AWall=N_Aintfloor,
+    redeclare CE.Data.Constructions.State2.S2Floor_Int constructionType,
     inc=0) "Floor in the night zone" annotation (Placement(transformation(
         extent={{-5,-9},{5,9}},
         rotation=90,
@@ -127,7 +135,8 @@ model Terraced "Terraced"
   IDEAS.Buildings.Components.InternalWall int_wall_N(
     azi=0,
     AWall=N_Aintwalls,
-    inc=1.5707963267949) "Walls in the nightzone" annotation (Placement(
+     redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
+    inc=1.5707963267949) "Walls in the nightzone"  annotation (Placement(
         transformation(
         extent={{-5,-9},{5,9}},
         rotation=90,
@@ -136,6 +145,7 @@ model Terraced "Terraced"
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
     AWall={D_Awall_south,D_Awall_north},
+    redeclare CE.Data.Constructions.State2.S2Wall constructionType,
     inc={1.5707963267949,1.5707963267949}) "Outer walls of nightzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
@@ -146,13 +156,15 @@ model Terraced "Terraced"
   IDEAS.Buildings.Components.Zone dayzone(
     V=D_Volume,
     corrCV=5,
-    nSurf=13) "Dayzone (living room & kitchen)"
+    nSurf=13,
+    n50=10) "Dayzone (living room & kitchen)"
     annotation (Placement(transformation(extent={{80,-70},{100,-50}})));
 
   IDEAS.Buildings.Components.SlabOnGround floor_D(
     inc=0,
     azi=0,
     PWall=D_Pfloor,
+    redeclare CE.Data.Constructions.State2.S2Floor constructionType,
     AWall=D_Afloor) "Slab on ground of dayzone" annotation (Placement(
         transformation(
         extent={{-5,-10},{5,10}},
@@ -162,6 +174,7 @@ model Terraced "Terraced"
     AWall={D_Awall_south,D_Awall_north},
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
+    redeclare CE.Data.Constructions.State2.S2Wall constructionType,
     inc={1.5707963267949,1.5707963267949}) "Outer walls of dayzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
@@ -172,6 +185,7 @@ model Terraced "Terraced"
     AWall={D_Awall_west,D_Awall_east},
     azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East +
         orientation},
+    redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
     inc={1.5707963267949,1.5707963267949})
     "Common walls with neighbors of the dayzone" annotation (Placement(
         transformation(
@@ -185,15 +199,15 @@ model Terraced "Terraced"
         orientation},
     redeclare CE.Data.Glazing.Ins2 glazing,
     frac={f,f},
-    inc={1.5707963267949,1.5707963267949},
-    redeclare CE.Data.Frames.FrameU2_5 fraType) "Windows of dayzone"
+    redeclare CE.Data.Frames.FrameU2_5 fraType,
+    inc={1.5707963267949,1.5707963267949}) "Windows of dayzone"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={51,-74})));
 
   IDEAS.Buildings.Components.OuterWall doors_D[2](
-    redeclare CE.Data.Constructions.State1.S1Door constructionType,
+    redeclare CE.Data.Constructions.State2.S2Door constructionType,
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
         orientation},
     AWall={D_Adoor_south,D_Adoor_north},
@@ -207,6 +221,7 @@ model Terraced "Terraced"
   IDEAS.Buildings.Components.InternalWall int_wall_D(
     azi=0,
     AWall=D_Aintwalls,
+    redeclare CE.Data.Constructions.State2.S2Wall_Int constructionType,
     inc=1.5707963267949) "Walls in the dayzone" annotation (Placement(
         transformation(
         extent={{-5.5,-9.5},{5.5,9.5}},
@@ -216,6 +231,7 @@ model Terraced "Terraced"
   IDEAS.Buildings.Components.OuterWall roof_D(
     inc=0,
     azi=IDEAS.Constants.South + orientation,
+    redeclare CE.Data.Constructions.State2.S2FlatRoof constructionType,
     AWall=D_Aroof) "Roof of dayzone"
                       annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
@@ -226,41 +242,18 @@ model Terraced "Terraced"
   IDEAS.Buildings.Components.InternalWall int_floor_D_N(
     inc=0,
     azi=0,
-    AWall=D_N_Acommonfloor) "Internal floors between day and night zones"
+    redeclare CE.Data.Constructions.State2.S2Floor_Int constructionType,
+     AWall=D_N_Acommonfloor) "Internal floors between day and night zones"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={71,-40})));
 
-  IDEAS.Buildings.Components.Zone Attic(
-    V=N_Volume,
-    corrCV=5,
-    nSurf=5) "Attic"
-    annotation (Placement(transformation(extent={{80,50},{100,70}})));
-  IDEAS.Buildings.Components.OuterWall roof_A[2](
-    inc={Roof_incl,Roof_incl},
-    azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
-        orientation},
-    AWall={A_Aroof,A_Aroof}) "Roof of attic"
-                                      annotation (Placement(
-        transformation(
-        extent={{-5,-10},{5,10}},
-        rotation=90,
-        origin={-29,46})));
-  IDEAS.Buildings.Components.AdiabaticWall comm_wall_A[2](
-    azi={IDEAS.Constants.West + orientation,IDEAS.Constants.East + orientation},
-    AWall={A_Awall_west,A_Awall_east},
-    inc={1.5707963267949,1.5707963267949})
-    "Common walls with neighbors of the attic" annotation (Placement(
-        transformation(
-        extent={{-5,-10},{5,10}},
-        rotation=90,
-        origin={-109,46})));
-
   IDEAS.Buildings.Components.InternalWall int_floor_N_A(
     inc=0,
     azi=0,
-    AWall=N_A_Acommonfloor) "Internal floors between day and night zones"
+    redeclare CE.Data.Constructions.State2.S2Floor_Int constructionType,
+     AWall=N_A_Acommonfloor) "Internal floors between day and night zones"
     annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
@@ -297,8 +290,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(int_wall_N.propsBus_b, nightzone.propsBus[5]) annotation (Line(
-      points={{-72.6,-18},{-70,-18},{-70,-26},{-48,-26},{-48,2},{-50,2},{80,2},
-          {80,4.71429}},
+      points={{-72.6,-18},{-70,-18},{-70,-26},{-48,-26},{-48,2},{80,2},{80,
+          4.71429}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -344,7 +337,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(int_wall_D.propsBus_a, dayzone.propsBus[4]) annotation (Line(
-      points={{-73.3,-67},{-73.3,-56},{-73.3,-58},{80,-58},{80,-55.0769}},
+      points={{-73.3,-67},{-73.3,-58},{80,-58},{80,-55.0769}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -361,7 +354,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(roof_D.propsBus_a, dayzone.propsBus[7]) annotation (Line(
-      points={{-33,-43},{-33,-40},{-10,-40},{-10,-56},{80,-56},{80,-56}},
+      points={{-33,-43},{-33,-40},{-10,-40},{-10,-56},{80,-56}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -398,7 +391,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   connect(nightzone.gainCon, heatPortCon[2]) annotation (Line(
-      points={{100,-3},{112,-3},{112,-2},{112,-2},{112,20},{150,20}},
+      points={{100,-3},{112,-3},{112,20},{150,20}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(nightzone.gainRad, heatPortRad[2]) annotation (Line(
@@ -406,15 +399,18 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.TSensor, TSensor[1]) annotation (Line(
-      points={{100.6,-60},{132,-60},{132,-64},{144,-64},{144,-66.6667},{156,-66.6667}},
+      points={{100.6,-60},{132,-60},{132,-64},{144,-64},{144,-66.6667},{156,
+          -66.6667}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(dayzone.gainCon, heatPortCon[1]) annotation (Line(
-      points={{100,-63},{108,-63},{108,-64},{112,-64},{112,13.3333},{150,13.3333}},
+      points={{100,-63},{108,-63},{108,-64},{112,-64},{112,13.3333},{150,
+          13.3333}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.gainRad, heatPortRad[1]) annotation (Line(
-      points={{100,-66},{110,-66},{110,-64},{124,-64},{124,-26.6667},{150,-26.6667}},
+      points={{100,-66},{110,-66},{110,-64},{124,-64},{124,-26.6667},{150,
+          -26.6667}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(int_floor_N_A.port_emb, heatPortEmb[3]) annotation (Line(
@@ -442,4 +438,4 @@ equation
     Diagram(coordinateSystem(extent={{-120,-100},{160,80}},
           preserveAspectRatio=false), graphics),
     Icon(coordinateSystem(extent={{-120,-100},{160,80}})));
-end Terraced;
+end T2;
