@@ -28,8 +28,12 @@ equation
      end if;
      heatPortRad[i].Q_flow = -fractionRad[i]*QHeatZone[i];
      heatPortCon[i].Q_flow = -(1 - fractionRad[i])*QHeatZone[i];
-     heatPortEmb[i].Q_flow = 0;
    end for;
+
+  for j in 1:nEmbPorts loop
+     heatPortEmb[j].Q_flow = 0;
+  end for;
+
   QHeaSys = sum(QHeatZone);
 //  P[1] = QHeaSys/COP;
 //  Q[1] = 0;
