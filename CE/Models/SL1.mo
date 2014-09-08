@@ -245,6 +245,38 @@ public
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={71,20})));
+  IDEAS.Fluid.Sources.FixedBoundary bou(nPorts=1, redeclare package Medium =
+        IDEAS.Media.Air)
+    annotation (Placement(transformation(extent={{-148,52},{-128,72}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary(nPorts=1, redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0)
+    annotation (Placement(transformation(extent={{-148,72},{-128,92}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=sim.Te)
+    annotation (Placement(transformation(extent={{-190,76},{-170,96}})));
+  IDEAS.Fluid.Sources.FixedBoundary bou1(         redeclare package Medium =
+        IDEAS.Media.Air, nPorts=1)
+    annotation (Placement(transformation(extent={{-148,-8},{-128,12}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary1(         redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0,
+    nPorts=1)
+    annotation (Placement(transformation(extent={{-148,12},{-128,32}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=sim.Te)
+    annotation (Placement(transformation(extent={{-190,16},{-170,36}})));
+  IDEAS.Fluid.Sources.FixedBoundary bou2(         redeclare package Medium =
+        IDEAS.Media.Air, nPorts=1)
+    annotation (Placement(transformation(extent={{-150,-70},{-130,-50}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary2(         redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0,
+    nPorts=1)
+    annotation (Placement(transformation(extent={{-150,-50},{-130,-30}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=sim.Te)
+    annotation (Placement(transformation(extent={{-192,-46},{-172,-26}})));
 equation
   connect(Attic.TSensor, TSensor[3]) annotation (Line(
       points={{100.6,60},{126,60},{126,-53.3333},{156,-53.3333}},
@@ -402,6 +434,42 @@ equation
           {134,60},{150,60}},
       color={191,0,0},
       smooth=Smooth.None));
+  connect(boundary.ports[1], Attic.flowPort_Out) annotation (Line(
+      points={{-128,82},{88,82},{88,70}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou.ports[1], Attic.flowPort_In) annotation (Line(
+      points={{-128,62},{-120,62},{-120,82},{92,82},{92,70}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(realExpression.y,boundary. T_in) annotation (Line(
+      points={{-169,86},{-150,86}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(realExpression1.y,boundary1. T_in) annotation (Line(
+      points={{-169,26},{-150,26}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(realExpression2.y,boundary2. T_in) annotation (Line(
+      points={{-171,-36},{-152,-36}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(boundary1.ports[1], nightzone.flowPort_Out) annotation (Line(
+      points={{-128,22},{88,22},{88,10}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou1.ports[1], nightzone.flowPort_In) annotation (Line(
+      points={{-128,2},{-120,2},{-120,22},{92,22},{92,10}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(boundary2.ports[1], dayzone.flowPort_Out) annotation (Line(
+      points={{-130,-40},{-26,-40},{-26,-40},{88,-40},{88,-50}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou2.ports[1], dayzone.flowPort_In) annotation (Line(
+      points={{-130,-60},{-120,-60},{-120,-40},{92,-40},{92,-50}},
+      color={0,127,255},
+      smooth=Smooth.None));
   annotation (
     Line(
       points={{27,131},{27,140},{70,140},{70,134},{80,134}},
@@ -411,7 +479,7 @@ equation
       points={{65,44},{68,44},{68,50},{92,50},{92,120}},
       color={191,0,0},
       smooth=Smooth.None),
-    Diagram(coordinateSystem(extent={{-120,-100},{160,80}},
+    Diagram(coordinateSystem(extent={{-180,-100},{160,100}},
           preserveAspectRatio=false), graphics),
-    Icon(coordinateSystem(extent={{-120,-100},{160,80}})));
+    Icon(coordinateSystem(extent={{-180,-100},{160,100}})));
 end SL1;

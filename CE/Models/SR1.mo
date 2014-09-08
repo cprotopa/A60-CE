@@ -246,6 +246,38 @@ public
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={71,20})));
+  IDEAS.Fluid.Sources.FixedBoundary bou(nPorts=1, redeclare package Medium =
+        IDEAS.Media.Air)
+    annotation (Placement(transformation(extent={{-152,56},{-132,76}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary(nPorts=1, redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0)
+    annotation (Placement(transformation(extent={{-152,76},{-132,96}})));
+  Modelica.Blocks.Sources.RealExpression realExpression(y=sim.Te)
+    annotation (Placement(transformation(extent={{-194,80},{-174,100}})));
+  IDEAS.Fluid.Sources.FixedBoundary bou1(         redeclare package Medium =
+        IDEAS.Media.Air, nPorts=1)
+    annotation (Placement(transformation(extent={{-152,-4},{-132,16}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary1(         redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0,
+    nPorts=1)
+    annotation (Placement(transformation(extent={{-152,16},{-132,36}})));
+  Modelica.Blocks.Sources.RealExpression realExpression1(y=sim.Te)
+    annotation (Placement(transformation(extent={{-194,20},{-174,40}})));
+  IDEAS.Fluid.Sources.FixedBoundary bou2(         redeclare package Medium =
+        IDEAS.Media.Air, nPorts=1)
+    annotation (Placement(transformation(extent={{-152,-64},{-132,-44}})));
+  IDEAS.Fluid.Sources.MassFlowSource_T boundary2(         redeclare package
+      Medium = IDEAS.Media.Air,
+    use_T_in=true,
+    m_flow=0,
+    nPorts=1)
+    annotation (Placement(transformation(extent={{-152,-44},{-132,-24}})));
+  Modelica.Blocks.Sources.RealExpression realExpression2(y=sim.Te)
+    annotation (Placement(transformation(extent={{-194,-40},{-174,-20}})));
 equation
   connect(Attic.TSensor, TSensor[3]) annotation (Line(
       points={{100.6,60},{126,60},{126,-53.3333},{156,-53.3333}},
@@ -255,7 +287,6 @@ equation
       points={{100.6,0},{126,0},{126,-60},{156,-60}},
       color={0,0,127},
       smooth=Smooth.None));
-
   connect(dayzone.TSensor, TSensor[1]) annotation (Line(
       points={{100.6,-60},{126,-60},{126,-66.6667},{156,-66.6667}},
       color={0,0,127},
@@ -286,6 +317,7 @@ equation
       points={{100,-66},{118,-66},{118,-26.6667},{150,-26.6667}},
       color={191,0,0},
       smooth=Smooth.None));
+
   connect(int_floor_N_A.port_emb, heatPortEmb[3]) annotation (Line(
       points={{81,20},{106,20},{106,40},{134,40},{134,60},{150,60}},
       color={191,0,0},
@@ -295,6 +327,12 @@ equation
           60},{150,60}},
       color={191,0,0},
       smooth=Smooth.None));
+  connect(int_wall_D.port_emb, heatPortEmb[1]) annotation (Line(
+      points={{-60,-72.5},{-56,-72.5},{-56,-32},{106,-32},{106,40},{134,40},
+          {134,60},{150,60}},
+      color={191,0,0},
+      smooth=Smooth.None));
+
   connect(comm_wall_A.propsBus_a, Attic.propsBus[1]) annotation (Line(
       points={{-113,51},{-113,65.6},{80,65.6}},
       color={255,204,51},
@@ -351,6 +389,13 @@ equation
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
+  connect(int_wall_N.propsBus_b, nightzone.propsBus[13]) annotation (Line(
+      points={{-72.6,-18},{-72,-18},{-72,-28},{-52,-28},{-52,6},{80,6},{80,
+          2.15385}},
+      color={255,204,51},
+      thickness=0.5,
+      smooth=Smooth.None));
+
   connect(int_floor_D_N.propsBus_b, dayzone.propsBus[1]) annotation (Line(
       points={{67,-45},{67,-54.1667},{80,-54.1667}},
       color={255,204,51},
@@ -358,12 +403,6 @@ equation
       smooth=Smooth.None));
   connect(comm_wall_D.propsBus_a, dayzone.propsBus[2]) annotation (Line(
       points={{-113,-69},{-113,-54.5},{80,-54.5}},
-      color={255,204,51},
-      thickness=0.5,
-      smooth=Smooth.None));
-  connect(int_wall_N.propsBus_b, nightzone.propsBus[13]) annotation (Line(
-      points={{-72.6,-18},{-72,-18},{-72,-28},{-52,-28},{-52,6},{80,6},{80,
-          2.15385}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -398,10 +437,42 @@ equation
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
-  connect(int_wall_D.port_emb, heatPortEmb[1]) annotation (Line(
-      points={{-60,-72.5},{-56,-72.5},{-56,-32},{106,-32},{106,40},{134,40},
-          {134,60},{150,60}},
-      color={191,0,0},
+
+  connect(boundary.ports[1], Attic.flowPort_Out) annotation (Line(
+      points={{-132,86},{-28,86},{-28,86},{88,86},{88,70}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou.ports[1], Attic.flowPort_In) annotation (Line(
+      points={{-132,66},{-124,66},{-124,86},{-116,86},{-116,86},{92,86},{92,70}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(realExpression.y,boundary. T_in) annotation (Line(
+      points={{-173,90},{-160,90},{-160,90},{-158,90},{-158,90},{-154,90}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(realExpression1.y,boundary1. T_in) annotation (Line(
+      points={{-173,30},{-154,30}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(realExpression2.y,boundary2. T_in) annotation (Line(
+      points={{-173,-30},{-154,-30}},
+      color={0,0,127},
+      smooth=Smooth.None));
+  connect(boundary1.ports[1], nightzone.flowPort_Out) annotation (Line(
+      points={{-132,26},{-66,26},{-66,26},{88,26},{88,10}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou1.ports[1], nightzone.flowPort_In) annotation (Line(
+      points={{-132,6},{-120,6},{-120,26},{92,26},{92,10}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(boundary2.ports[1], dayzone.flowPort_Out) annotation (Line(
+      points={{-132,-34},{-40,-34},{-40,-34},{88,-34},{88,-50}},
+      color={0,127,255},
+      smooth=Smooth.None));
+  connect(bou2.ports[1], dayzone.flowPort_In) annotation (Line(
+      points={{-132,-54},{-120,-54},{-120,-34},{92,-34},{92,-50}},
+      color={0,127,255},
       smooth=Smooth.None));
   annotation (
     Line(
@@ -412,7 +483,7 @@ equation
       points={{65,44},{68,44},{68,50},{92,50},{92,120}},
       color={191,0,0},
       smooth=Smooth.None),
-    Diagram(coordinateSystem(extent={{-120,-100},{160,80}},
+    Diagram(coordinateSystem(extent={{-180,-100},{160,100}},
           preserveAspectRatio=false), graphics),
-    Icon(coordinateSystem(extent={{-120,-100},{160,80}})));
+    Icon(coordinateSystem(extent={{-180,-100},{160,100}})));
 end SR1;
