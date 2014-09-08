@@ -3,10 +3,19 @@ model neighborhood_test2
 
   inner IDEAS.SimInfoManager sim
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+  IDEAS.Interfaces.Building building6(
+    redeclare CE.HeatingSystems.Boiler heatingSystem,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem,
+    redeclare CE.Models.D2 building(orientation=3.1415926535898))
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=0,
+        origin={-20,-70})));
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
-  Models.D1 d1_1
-    annotation (Placement(transformation(extent={{-86,-82},{-58,-64}})));
   annotation (Diagram(coordinateSystem(extent={{-100,-100},{120,100}},
           preserveAspectRatio=false), graphics={
         Line(

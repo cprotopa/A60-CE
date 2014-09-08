@@ -73,9 +73,9 @@ model neighborhood
     redeclare CE.HeatingSystems.HeatPump heatingSystem,
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.ConstantAirFlowRecup ventilationSystem,
-    redeclare CE.Models.SR2 building(orientation=0))
-                                      annotation (Placement(transformation(
+    redeclare CE.Models.SR2 building(orientation=0),
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)              annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={-10,-30})));
@@ -90,9 +90,13 @@ model neighborhood
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={10,-70})));
-  IDEAS.Interfaces.Building building9(redeclare CE.HeatingSystems.HeatPump
-      heatingSystem, redeclare CE.Models.SL2 building(orientation=0))
-                                      annotation (Placement(transformation(
+  IDEAS.Interfaces.Building building9(
+    redeclare CE.HeatingSystems.HeatPump heatingSystem,
+    redeclare CE.Models.SL2 building(orientation=0),
+    redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+      ventilationSystem)              annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={30,-30})));
