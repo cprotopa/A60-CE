@@ -8,7 +8,6 @@ model Boiler "A60 Boiler model"
     final nConvPorts = nZones,
     final nRadPorts = nZones,
     final nTemSen = nZones,
-    final nEmbPorts=0,
     final nLoads=1,
     nZones = nZones);
 
@@ -20,23 +19,23 @@ model Boiler "A60 Boiler model"
   Modelica.SIunits.Temperature TWex = 273.15 + 40 "Supply water temperature";
   Modelica.SIunits.Temperature dT;
 
-  outer IDEAS.SimInfoManager sim
-    annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
-
 equation
    for i in 1:nZones loop
      if noEvent((TSet[i] - TSensor[i]) > 0) then
-       QHeatZone[i] = IDEAS.Utilities.Math.Functions.smoothMin(x1=C[i]*(TSet[i] - TSensor[i])/t, x2=QNom[i],deltaX=1);
+       QHeatZone[i] = IDEAS.Utilities.Math.Functions.smoothMin(x1=C[i]*(294.15- TSensor[i])/t, x2=QNom[i],deltaX=1);
      else
        QHeatZone[i] = 0;
      end if;
      heatPortRad[i].Q_flow = -fractionRad[i]*QHeatZone[i];
      heatPortCon[i].Q_flow = -(1 - fractionRad[i])*QHeatZone[i];
+     heatPortEmb[i].Q_flow = 0;
    end for;
   QHeaSys = sum(QHeatZone);
-  P[1] = QHeaSys/COP;
-  Q[1] = 0;
+//  P[1] = QHeaSys/COP;
+//  Q[1] = 0;
 
   PBoi = -0.0591*PLR+0.9303;
 
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}), graphics));
 end Boiler;
