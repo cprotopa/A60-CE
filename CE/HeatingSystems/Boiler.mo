@@ -1,7 +1,7 @@
 within CE.HeatingSystems;
 model Boiler "A60 Boiler model"
 
-  extends IDEAS.HeatingSystems.Interfaces.Partial_IdealHeating(nZones = nZones);
+  extends IDEAS.HeatingSystems.Interfaces.Partial_IdealHeating(nZones = nZones, t=5);
   extends IDEAS.Interfaces.BaseClasses.HeatingSystem(
     final isHea = true,
     final isCoo = false,
