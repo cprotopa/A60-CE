@@ -56,7 +56,7 @@ model Appartment
     redeclare each CE.Data.Constructions.State1.S1Floor constructionType,
     each inc=0,
     each insulationThickness=0,
-    PWall={12.8,0,12.8})                                                        annotation (Placement(transformation(
+    PWall={12.8,4,12.8})                                                        annotation (Placement(transformation(
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={-69,-90})));
