@@ -31,7 +31,7 @@ model HeatPump "A60 Consoclim heatpump model"
 equation
    for i in 1:nZones loop
      if noEvent((294.15 - TSensor[i]) > 0) then
-       QHeatZone[i] = IDEAS.Utilities.Math.Functions.smoothMin(x1=C[i]*(294.15 - TSensor[i])/t, x2=QNom[i],deltaX=1);
+       QHeatZone[i] = IDEAS.Utilities.Math.Functions.smoothMin(x1=C[i]*(294.15 - TSensor[i]), x2=QNom[i],deltaX=1);
      else
        QHeatZone[i] = 0;
      end if;
