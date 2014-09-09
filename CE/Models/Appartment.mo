@@ -4,6 +4,7 @@ model Appartment
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=15, nEmb=10);
 
+protected
   BaseClasses.AppartmentFloor appartmentFloor
     annotation (Placement(transformation(extent={{-40,-80},{-10,-60}})));
   BaseClasses.AppartmentFloor appartmentFloor1

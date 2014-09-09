@@ -13,6 +13,7 @@ model D1 "A60 Detached V1"
   parameter Real f=0.15 " Frame/window fraction: 0.21 ";
 
    //Attic
+protected
   IDEAS.Buildings.Components.Zone Attic(
     corrCV=5,
     nSurf=5,

@@ -45,7 +45,7 @@ parameter Modelica.SIunits.Length  D_Pfloor =  27.10;
 parameter Modelica.SIunits.Area   D_Aintwalls =  45.70;
 parameter Modelica.SIunits.Area   D_N_Acommonfloor =  88.55;
   //Attic
-public
+
     IDEAS.Buildings.Components.Zone Attic(
     V=N_Volume,
     corrCV=5,

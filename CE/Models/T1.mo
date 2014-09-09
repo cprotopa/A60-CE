@@ -45,7 +45,7 @@ parameter Modelica.SIunits.Area  D_Aroof =  5.59;
 parameter Modelica.SIunits.Area   D_N_Acommonfloor =  52.77;
 
   //Attic
-public
+
   IDEAS.Buildings.Components.Zone Attic(
     V=N_Volume,
     corrCV=5,

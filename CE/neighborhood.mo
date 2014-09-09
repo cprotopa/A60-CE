@@ -281,5 +281,10 @@ model neighborhood
           extent={{-110,-45},{-104,-51}},
           lineColor={0,128,255},
           lineThickness=0.5)}), Icon(coordinateSystem(extent={{-100,-100},{120,
-            100}})));
+            100}})),
+    experiment(
+      StopTime=864000,
+      Interval=3600,
+      __Dymola_Algorithm="Lsodar"),
+    __Dymola_experimentSetupOutput);
 end neighborhood;
