@@ -1,19 +1,20 @@
 within CE;
-model neighborhood_test
+model neighborhood_App
 
   inner IDEAS.SimInfoManager sim
     annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
-  IDEAS.Interfaces.Building building2(
-    redeclare CE.Models.D1 building,
-    redeclare CE.HeatingSystems.HeatPump heatingSystem,
-    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
+  IDEAS.Interfaces.Building building12(
+    redeclare CE.Models.Appartment building,
     redeclare CE.Occupants.ISO13790 occupant,
+    redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
-      ventilationSystem)
-    annotation (Placement(transformation(
+      ventilationSystem,
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1200,400,1200,1000,
+          400,1000,1000,400,1000,1000,400,1000,1000,400,1000}))
+                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
-        origin={-80,-70})));
+        origin={70,-30})));
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
   annotation (Diagram(coordinateSystem(extent={{-100,-100},{120,100}},
@@ -56,5 +57,10 @@ model neighborhood_test
           extent={{-110,-45},{-104,-51}},
           lineColor={0,128,255},
           lineThickness=0.5)}), Icon(coordinateSystem(extent={{-100,-100},{120,
-            100}})));
-end neighborhood_test;
+            100}})),
+    experiment(
+      StopTime=864000,
+      Interval=3600,
+      __Dymola_Algorithm="Lsodar"),
+    __Dymola_experimentSetupOutput);
+end neighborhood_App;
