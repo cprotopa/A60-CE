@@ -9,7 +9,7 @@ model neighborhood_L
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
     redeclare CE.Models.SL1 building(orientation=0),
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1000,1100,0}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1300,1400,0}))
                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -31,7 +31,7 @@ model neighborhood_L
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
     redeclare CE.Models.T2 building(orientation=0),
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2200,4200,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2000,4000,0}))
                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -64,7 +64,7 @@ model neighborhood_L
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={3000,7000,0}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1300,1400,0}))
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   IDEAS.Interfaces.Building building19(
     redeclare CE.Models.T1 building(orientation=-1.5707963267949),
@@ -88,7 +88,7 @@ model neighborhood_L
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1000,1100,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2200,4200,0}))
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-80,80},{-60,100}})));
@@ -134,7 +134,7 @@ model neighborhood_L
           lineThickness=0.5)}), Icon(coordinateSystem(extent={{-100,-100},{120,
             100}})),
     experiment(
-      StopTime=864000,
+      StopTime=3.1536e+007,
       Interval=3600,
       __Dymola_Algorithm="Lsodar"),
     __Dymola_experimentSetupOutput);

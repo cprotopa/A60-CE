@@ -31,7 +31,7 @@ model neighborhood_R
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
     redeclare CE.Models.SR1 building(orientation=0),
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={3000,7000,0}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={900,1100,0}))
                                        annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -42,7 +42,7 @@ model neighborhood_R
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1000,1100,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1100,1400,0}))
     annotation (Placement(transformation(extent={{20,4},{40,24}})));
   IDEAS.Interfaces.Building building20(
     redeclare CE.Models.T2 building(orientation=1.5707963267949),
@@ -112,7 +112,7 @@ model neighborhood_R
           lineThickness=0.5)}), Icon(coordinateSystem(extent={{-100,-100},{120,
             100}})),
     experiment(
-      StopTime=864000,
+      StopTime=3.1536e+007,
       Interval=3600,
       __Dymola_Algorithm="Lsodar"),
     __Dymola_experimentSetupOutput);

@@ -9,8 +9,7 @@ model neighborhood_App
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1200,400,1200,1000,
-          400,1000,1000,400,1000,1000,400,1000,1000,400,1000}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1600,400,1500,1600,400,1500,1600,400,1500,1600,400,1500,1600,400,1500}))
                                        annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -59,7 +58,7 @@ model neighborhood_App
           lineThickness=0.5)}), Icon(coordinateSystem(extent={{-100,-100},{120,
             100}})),
     experiment(
-      StopTime=864000,
+      StopTime=3.1536e+007,
       Interval=3600,
       __Dymola_Algorithm="Lsodar"),
     __Dymola_experimentSetupOutput);
