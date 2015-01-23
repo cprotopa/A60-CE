@@ -4,7 +4,6 @@ model Appartment
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=15, nEmb=10);
 
-protected
   BaseClasses.AppartmentFloor appartmentFloor
     annotation (Placement(transformation(extent={{-40,-80},{-10,-60}})));
   BaseClasses.AppartmentFloor appartmentFloor1
@@ -14,7 +13,7 @@ protected
   BaseClasses.AppartmentFloor appartmentFloor3
     annotation (Placement(transformation(extent={{-40,40},{-10,60}})));
   BaseClasses.AppartmentFloor appartmentFloor4
-    annotation (Placement(transformation(extent={{-40,80},{-10,100}})));
+    annotation (Placement(transformation(extent={{-40,68},{-10,88}})));
   IDEAS.Buildings.Components.InternalWall[3] internalWall(
     AWall={55.8,30.4,59.8},
     each azi=0,
@@ -70,7 +69,7 @@ protected
         extent={{5,-10},{-5,10}},
         rotation=90,
         origin={-69,110})));
-  inner Modelica.Fluid.System system
+  outer Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{100,-100},{120,-80}})));
 equation
   connect(internalWall3.propsBus_a, appartmentFloor1.floor) annotation (Line(
@@ -109,7 +108,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(internalWall1.propsBus_a, appartmentFloor4.floor) annotation (Line(
-      points={{-73,75},{-52.5,75},{-52.5,80.2},{-34,80.2}},
+      points={{-73,75},{-54,75},{-54,68.2},{-34,68.2}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
@@ -119,12 +118,12 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(internalWall5.propsBus_a, appartmentFloor4.roof) annotation (Line(
-      points={{-73,105},{-52.5,105},{-52.5,99.8},{-34,99.8}},
+      points={{-73,105},{-54,105},{-54,87.8},{-34,87.8}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));
   connect(appartmentFloor4.heatPortEmb, heatPortEmb[1:2]) annotation (Line(
-      points={{-10,96},{70,96},{70,53},{150,53}},
+      points={{-10,84},{70,84},{70,53},{150,53}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(appartmentFloor3.heatPortEmb, heatPortEmb[3:4]) annotation (Line(
@@ -144,7 +143,7 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(appartmentFloor4.heatPortCon, heatPortCon[1:3]) annotation (Line(
-      points={{-10,92},{70,92},{70,13.3333},{150,13.3333}},
+      points={{-10,80},{70,80},{70,13.3333},{150,13.3333}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(appartmentFloor3.heatPortCon, heatPortCon[4:6]) annotation (Line(
@@ -164,7 +163,7 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(appartmentFloor4.heatPortRad, heatPortRad[1:3]) annotation (Line(
-      points={{-10,88},{68,88},{68,-26.6667},{150,-26.6667}},
+      points={{-10,76},{70,76},{70,-26.6667},{150,-26.6667}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(appartmentFloor3.heatPortRad, heatPortRad[4:6]) annotation (Line(
@@ -184,7 +183,7 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(appartmentFloor4.TSensor, TSensor[1:3]) annotation (Line(
-      points={{-9.4,84},{70,84},{70,-66.6667},{156,-66.6667}},
+      points={{-9.4,72},{74,72},{74,-66.6667},{156,-66.6667}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(appartmentFloor3.TSensor, TSensor[4:6]) annotation (Line(
@@ -202,6 +201,46 @@ equation
   connect(appartmentFloor.TSensor, TSensor[13:15]) annotation (Line(
       points={{-9.4,-76},{70,-76},{70,-50.6667},{156,-50.6667}},
       color={0,0,127},
+      smooth=Smooth.None));
+  connect(flowPort_Out[1:3], appartmentFloor4.flowPort_Out) annotation (Line(
+      points={{-20,93.3333},{-20,94},{-27,94},{-27,88}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_In[1:3], appartmentFloor4.flowPort_In) annotation (Line(
+      points={{20,93.3333},{-2,93.3333},{-2,88},{-23,88}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_Out[4:6], appartmentFloor3.flowPort_Out) annotation (Line(
+      points={{-20,97.3333},{-24,97.3333},{-24,60},{-27,60}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_In[4:6], appartmentFloor3.flowPort_In) annotation (Line(
+      points={{20,97.3333},{-2,97.3333},{-2,60},{-23,60}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_Out[7:9], appartmentFloor2.flowPort_Out) annotation (Line(
+      points={{-20,101.333},{-24,101.333},{-24,20},{-27,20}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_In[7:9], appartmentFloor2.flowPort_In) annotation (Line(
+      points={{20,101.333},{20,60},{-23,60},{-23,20}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_Out[10:12], appartmentFloor1.flowPort_Out) annotation (Line(
+      points={{-20,105.333},{-24,105.333},{-24,-20},{-27,-20}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_In[10:12], appartmentFloor1.flowPort_In) annotation (Line(
+      points={{20,105.333},{-2,105.333},{-2,-20},{-23,-20}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_Out[13:15], appartmentFloor.flowPort_Out) annotation (Line(
+      points={{-20,109.333},{-24,109.333},{-24,-60},{-27,-60}},
+      color={0,0,0},
+      smooth=Smooth.None));
+  connect(flowPort_In[13:15], appartmentFloor.flowPort_In) annotation (Line(
+      points={{20,109.333},{20,20},{-23,20},{-23,-60}},
+      color={0,0,0},
       smooth=Smooth.None));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-150,
             -100},{150,100}}), graphics));
