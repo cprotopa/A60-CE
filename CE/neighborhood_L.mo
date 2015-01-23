@@ -9,7 +9,7 @@ model neighborhood_L
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
     redeclare CE.Models.SL1 building(orientation=0),
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1300,1400,0}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1400,1400,0}))
                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -31,7 +31,7 @@ model neighborhood_L
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
     redeclare CE.Models.T2 building(orientation=0),
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2000,4000,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2800,4200,0}))
                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -53,7 +53,7 @@ model neighborhood_L
     redeclare CE.Models.SR2 building(orientation=0),
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={3000,7000,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={3800,7000,0}))
                                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
@@ -64,7 +64,7 @@ model neighborhood_L
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1300,1400,0}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1400,1400,0}))
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
   IDEAS.Interfaces.Building building19(
     redeclare CE.Models.T1 building(orientation=-1.5707963267949),
@@ -72,7 +72,7 @@ model neighborhood_L
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1000,1100,0}))
+    redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={10000,11000,0}))
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));
   IDEAS.Interfaces.Building building21(
     redeclare CE.Models.T2 building(orientation=-1.5707963267949),
@@ -80,7 +80,7 @@ model neighborhood_L
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2200,4200,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2800,4200,0}))
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
   IDEAS.Interfaces.Building building23(
     redeclare CE.Models.T2 building(orientation=-1.5707963267949),
@@ -88,7 +88,7 @@ model neighborhood_L
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
       ventilationSystem,
-    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2200,4200,0}))
+    redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={2800,4200,0}))
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
   inner Modelica.Fluid.System system
     annotation (Placement(transformation(extent={{-80,80},{-60,100}})));

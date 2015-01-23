@@ -64,7 +64,7 @@ protected
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={-29,46})));
-  IDEAS.Buildings.Components.AdiabaticWall comm_wall_A(
+  IDEAS.Buildings.Components.BoundaryWall  comm_wall_A(
     each insulationThickness=0,AWall=A_Awall_comm,
     azi=IDEAS.Constants.East + orientation,
     redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
@@ -114,7 +114,7 @@ protected
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={11,-14})));
-  IDEAS.Buildings.Components.AdiabaticWall
+  IDEAS.Buildings.Components.BoundaryWall
                                         comm_wall_N(
     each insulationThickness=0,AWall=N_Awall_comm,
      redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
@@ -180,7 +180,7 @@ protected
         extent={{-5,-10},{5,10}},
         rotation=90,
         origin={11,-74})));
-  IDEAS.Buildings.Components.AdiabaticWall
+  IDEAS.Buildings.Components.BoundaryWall
                                         comm_wall_D(
     each insulationThickness=0,AWall=D_Awall_comm,
     redeclare CE.Data.Constructions.State1.S1Wall_Int  constructionType,
