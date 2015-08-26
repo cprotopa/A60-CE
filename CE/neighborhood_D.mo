@@ -6,7 +6,7 @@ model neighborhood_D
   IDEAS.Interfaces.Building building2(
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.Occupants.ISO13790 occupant,
-    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.D1 building(orientation=3.1415926535898),
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={2200,2500,0}))
@@ -17,7 +17,7 @@ model neighborhood_D
   IDEAS.Interfaces.Building building6(
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.Occupants.ISO13790 occupant,
-    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.D2 building(orientation=3.1415926535898),
     redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={6600,11000,0}))
@@ -27,7 +27,7 @@ model neighborhood_D
         origin={-20,-70})));
   IDEAS.Interfaces.Building building8(
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare CE.Models.D1 building(orientation=3.1415926535898),
@@ -39,7 +39,7 @@ model neighborhood_D
   IDEAS.Interfaces.Building building10(
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.Occupants.ISO13790 occupant,
-    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.D1 building(orientation=3.1415926535898),
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={2200,2500,0}))
@@ -50,7 +50,7 @@ model neighborhood_D
   IDEAS.Interfaces.Building building13(
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.Occupants.ISO13790 occupant,
-    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.D1 building(orientation=3.1415926535898),
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={2200,2500,0}))
@@ -61,7 +61,7 @@ model neighborhood_D
   IDEAS.Interfaces.Building building15(
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.Occupants.ISO13790 occupant,
-    redeclare IDEAS.Buildings.Validation.BaseClasses.VentilationSystem.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.D2 building(orientation=3.1415926535898),
     redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={6600,11000,0}))

@@ -7,7 +7,7 @@ model neighborhood_App
     redeclare CE.Models.Appartment building,
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1600,400,1500,1600,400,1500,1600,400,1500,1600,400,1500,1600,400,1500}))
                                        annotation (Placement(transformation(

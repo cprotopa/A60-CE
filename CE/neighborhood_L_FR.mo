@@ -6,7 +6,7 @@ model neighborhood_L_FR
   IDEAS.Interfaces.Building building1(
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.SL1 building(orientation=0),
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1,1,1}))
@@ -17,7 +17,7 @@ model neighborhood_L_FR
   IDEAS.Interfaces.Building building3(
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.T1 building(orientation=0),
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1,1,1}))
@@ -28,7 +28,7 @@ model neighborhood_L_FR
   IDEAS.Interfaces.Building building4(
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.T2 building(orientation=0),
     redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1,1,1}))
@@ -39,7 +39,7 @@ model neighborhood_L_FR
   IDEAS.Interfaces.Building building5(
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.Models.T1 building(orientation=0),
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1,1,1}))
@@ -51,7 +51,7 @@ model neighborhood_L_FR
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
     redeclare CE.Models.SR2 building(orientation=0),
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1,1,1}))
                                       annotation (Placement(transformation(
@@ -62,7 +62,7 @@ model neighborhood_L_FR
     redeclare CE.Models.SL1 building(orientation=-1.5707963267949),
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1,1,1}))
     annotation (Placement(transformation(extent={{-20,0},{0,20}})));
@@ -70,7 +70,7 @@ model neighborhood_L_FR
     redeclare CE.Models.T1 building(orientation=-1.5707963267949),
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.HeatingSystems.HeatPump heatingSystem(QNom={1,1,1}))
     annotation (Placement(transformation(extent={{-20,20},{0,40}})));
@@ -78,7 +78,7 @@ model neighborhood_L_FR
     redeclare CE.Models.T2 building(orientation=-1.5707963267949),
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1,1,1}))
     annotation (Placement(transformation(extent={{-20,40},{0,60}})));
@@ -86,7 +86,7 @@ model neighborhood_L_FR
     redeclare CE.Models.T2 building(orientation=-1.5707963267949),
     redeclare CE.Occupants.ISO13790 occupant,
     redeclare IDEAS.Interfaces.BaseClasses.CausalInhomeFeeder inHomeGrid,
-    redeclare IDEAS.VentilationSystems.None
+    redeclare CE.VentilationSystems.None
       ventilationSystem,
     redeclare CE.HeatingSystems.Boiler heatingSystem(QNom={1,1,1}))
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
