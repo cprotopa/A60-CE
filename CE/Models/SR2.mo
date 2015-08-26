@@ -3,6 +3,8 @@ model SR2 "Semi-Detached house on the RIGHTside of the block, state 2"
 
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=3,
+    redeclare package Medium =
+          CE.Data.Medium,
     final AZones={D_Afloor,D_N_Acommonfloor,N_A_Acommonfloor},
     final VZones={D_Volume,N_Volume, A_Volume},
     final nEmb=nZones,
@@ -51,7 +53,8 @@ parameter Modelica.SIunits.Area   D_N_Acommonfloor =  88.55;
     V=N_Volume,
     corrCV=5,
     nSurf=5,
-    n50=10) "Attic"
+    n50=10,
+    redeclare package Medium = Medium) "Attic"
     annotation (Placement(transformation(extent={{80,50},{100,70}})));
   IDEAS.Buildings.Components.OuterWall roof_A[2](
     inc={Roof_incl,Roof_incl},
@@ -89,7 +92,9 @@ parameter Modelica.SIunits.Area   D_N_Acommonfloor =  88.55;
     V=N_Volume,
     corrCV=5,
     nSurf=13,
-    n50=10) "Nightzone (bedrooms, corridors & bathroom)"
+    n50=10,
+    redeclare package Medium = Medium)
+    "Nightzone (bedrooms, corridors & bathroom)"
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
   IDEAS.Buildings.Components.OuterWall roof_N[2](
@@ -157,7 +162,8 @@ parameter Modelica.SIunits.Area   D_N_Acommonfloor =  88.55;
     V=D_Volume,
     corrCV=5,
     nSurf=12,
-    n50=10) "Dayzone (living room & kitchen)"
+    n50=10,
+    redeclare package Medium = Medium) "Dayzone (living room & kitchen)"
     annotation (Placement(transformation(extent={{80,-70},{100,-50}})));
 
   IDEAS.Buildings.Components.SlabOnGround floor_D(

@@ -3,6 +3,8 @@ model D2 "A60 Detached V2"
 
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=3,
+    redeclare package Medium =
+          CE.Data.Medium,
     final AZones={92.7,92.7,49.3},
     final VZones={236.4,236.4,55.7},
     final nEmb=nZones,
@@ -18,7 +20,8 @@ protected
     corrCV=5,
     nSurf=5,
     V=55.74,
-    n50=10) "Attic"
+    n50=10,
+    redeclare package Medium = Medium) "Attic"
     annotation (Placement(transformation(extent={{80,50},{100,70}})));
   IDEAS.Buildings.Components.OuterWall roof_A[2](
     azi={IDEAS.Constants.South + orientation,IDEAS.Constants.North +
@@ -49,7 +52,9 @@ protected
     corrCV=5,
     nSurf=14,
     V=236.4,
-    n50=10) "Nightzone (bedrooms, corridors & bathroom)"
+    n50=10,
+    redeclare package Medium = Medium)
+    "Nightzone (bedrooms, corridors & bathroom)"
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
   IDEAS.Buildings.Components.OuterWall roof_N[2](
@@ -110,7 +115,8 @@ protected
     corrCV=5,
     nSurf=14,
     V=236.4,
-    n50=10) "Dayzone (living room & kitchen)"
+    n50=10,
+    redeclare package Medium = Medium) "Dayzone (living room & kitchen)"
     annotation (Placement(transformation(extent={{80,-70},{100,-50}})));
   IDEAS.Buildings.Components.SlabOnGround floor_D(
     inc=0,
@@ -230,8 +236,7 @@ equation
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.gainCon, heatPortCon[1]) annotation (Line(
-      points={{100,-63},{108,-63},{116,-63},{116,-64},{116,14},{130,14},{130,
-          13.3333},{150,13.3333}},
+      points={{100,-63},{116,-63},{116,14},{130,14},{130,13.3333},{150,13.3333}},
       color={191,0,0},
       smooth=Smooth.None));
   connect(dayzone.gainRad, heatPortRad[1]) annotation (Line(
@@ -324,8 +329,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   connect(doors_D.propsBus_a, dayzone.propsBus[12:13]) annotation (Line(
-      points={{47,-89},{47,-82},{70,-82},{70,-70},{70,-70},{70,-56},{70,-56},{
-          70,-56},{80,-56},{80,-57.5714}},
+      points={{47,-89},{47,-82},{70,-82},{70,-56},{80,-56},{80,-57.5714}},
       color={255,204,51},
       thickness=0.5,
       smooth=Smooth.None));

@@ -3,6 +3,8 @@ model T2 "Terraced house, state 2"
 
   extends IDEAS.Interfaces.BaseClasses.Structure(
     nZones=3,
+    redeclare package Medium =
+          CE.Data.Medium,
     final AZones={D_Afloor,N_Aintfloor+D_N_Acommonfloor,N_A_Acommonfloor},
     final VZones={D_Volume,N_Volume, A_Volume},
     final nEmb=nZones,
@@ -50,7 +52,8 @@ parameter Modelica.SIunits.Area   D_N_Acommonfloor =  52.77;
     V=N_Volume,
     corrCV=5,
     nSurf=5,
-    n50=10) "Attic"
+    n50=10,
+    redeclare package Medium = Medium) "Attic"
     annotation (Placement(transformation(extent={{80,50},{100,70}})));
   IDEAS.Buildings.Components.OuterWall roof_A[2](
     inc={Roof_incl,Roof_incl},
@@ -81,7 +84,8 @@ parameter Modelica.SIunits.Area   D_N_Acommonfloor =  52.77;
     V=N_Volume,
      corrCV=5,
     nSurf=14,
-    n50=10) "Night zone"
+    n50=10,
+    redeclare package Medium = Medium) "Night zone"
     annotation (Placement(transformation(extent={{80,-10},{100,10}})));
 
   IDEAS.Buildings.Components.OuterWall roof_N[2](
@@ -158,7 +162,8 @@ parameter Modelica.SIunits.Area   D_N_Acommonfloor =  52.77;
     V=D_Volume,
     corrCV=5,
     nSurf=13,
-    n50=10) "Dayzone (living room & kitchen)"
+    n50=10,
+    redeclare package Medium = Medium) "Dayzone (living room & kitchen)"
     annotation (Placement(transformation(extent={{80,-70},{100,-50}})));
 
   IDEAS.Buildings.Components.SlabOnGround floor_D(

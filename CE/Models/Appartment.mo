@@ -2,7 +2,8 @@ within CE.Models;
 model Appartment
 
   extends IDEAS.Interfaces.BaseClasses.Structure(
-    nZones=15, nEmb=10);
+    nZones=15, nEmb=10, redeclare package Medium =
+          CE.Data.Medium);
 
   BaseClasses.AppartmentFloor appartmentFloor
     annotation (Placement(transformation(extent={{-40,-80},{-10,-60}})));
